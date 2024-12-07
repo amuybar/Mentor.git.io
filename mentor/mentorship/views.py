@@ -70,7 +70,6 @@ def contact(request):
     return render(request, 'contact.html', {'form': form})
 
 
-from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import Group
 from django.contrib import messages
@@ -188,6 +187,15 @@ def courses_view(request):
 
     # Pass courses to the template
     return render(request, 'courses.html', {'courses': courses})
+
+
+
+
+def index(request):
+    courses = Course.objects.all()[:6]  # Limiting to 6 courses for display
+    trainers = Trainer.objects.all()[:6]  # Limiting to 6 trainers for display
+    return render(request, 'index.html', {'courses': courses, 'trainers': trainers})
+
 
 
 

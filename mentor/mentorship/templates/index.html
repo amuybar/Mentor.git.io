@@ -26,12 +26,6 @@
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="/home/obita/Documents/PYTHON/school website/Mentor/mentor/mentor/static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/home/obita/Documents/PYTHON/school website/Mentor/mentor/mentor/static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="/home/obita/Documents/PYTHON/school website/Mentor/mentor/mentor/static/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/home/obita/Documents/PYTHON/school website/Mentor/mentor/mentor/static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="/home/obita/Documents/PYTHON/school website/Mentor/mentor/mentor/static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
    <link rel="stylesheet" href="mentorship/templates/main.css">
@@ -65,11 +59,10 @@
   --nav-font: "Poppins",  sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #37423b; /* Color for headings, subheadings and title throughout the website */
+  --background-color: #ffffff; 
+  --default-color: #444444; 
+  --heading-color: #37423b; 
   --accent-color: #5fcf80; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
@@ -820,170 +813,71 @@ h6 {
 
     <!-- Courses Section -->
     <section id="courses" class="courses section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Courses</h2>
-        <p>Popular Courses</p>
-      </div><!-- End Section Title -->
-
+          <h2><b>Our PopularCourses</b> </h2>
+        
+    
       <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="course-item">
-              <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">Web Development</p>
-                  <p class="price">$169</p>
-                </div>
-
-                <h3><a href="course-details.html">Website Design</a></h3>
-                <p class="description">amazing web desings</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-1-2.jpg" class="img-fluid" alt="">
-                    <a href="" class="trainer-link">William</a>
+          <div class="row">
+              {% for course in courses %}
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+                  <div class="course-item">
+                      <img src="{{ course.image.url }}" class="img-fluid" alt="{{ course.title }}" style="height: 230px; width:230px">
+                      <div class="course-content">
+                          <div class="d-flex justify-content-between align-items-center mb-3">
+                              <p class="category">{{ course.category }}</p>
+                              <p class="price">${{ course.price }}</p>
+                          </div>
+                          <h3><a href="#">{{ course.title }}</a></h3>
+                          <p class="description">{{ course.description }}</p>
+                          <div class="trainer d-flex justify-content-between align-items-center">
+                              <div class="trainer-profile d-flex align-items-center">
+                                  <img src="{{ course.trainer.image.url }}" class="img-fluid" alt="{{ course.trainer.name }}">
+                                  <a href="#" class="trainer-link">{{ course.trainer.name }}</a>
+                              </div>
+                          </div>
+                      </div>
                   </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bi bi-person user-icon"></i>&nbsp;50
-                    &nbsp;&nbsp;
-                    <i class="bi bi-heart heart-icon"></i>&nbsp;65
-                  </div>
-                </div>
               </div>
-            </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="course-item">
-              <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">Marketing</p>
-                  <p class="price">$250</p>
-                </div>
-
-                <h3><a href="course-details.html">Search Engine Optimization</a></h3>
-                <p class="description">Sarah</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-2-2.jpg" class="img-fluid" alt="">
-                    <a href="" class="trainer-link">Lana</a>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bi bi-person user-icon"></i>&nbsp;35
-                    &nbsp;&nbsp;
-                    <i class="bi bi-heart heart-icon"></i>&nbsp;42
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="course-item">
-              <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">Software Development</p>
-                  <p class="price">$180</p>
-                </div>
-
-                <h3><a href="course-details.html">Copywriting</a></h3>
-                <p class="description"> Copywriting services</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-3-2.jpg" class="img-fluid" alt="">
-                    <a href="" class="trainer-link">Brandon</a>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bi bi-person user-icon"></i>&nbsp;20
-                    &nbsp;&nbsp;
-                    <i class="bi bi-heart heart-icon"></i>&nbsp;85
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
-        </div>
-
+              {% endfor %}
+          </div>
       </div>
+  </section>
+  
 
-    </section><!-- /Courses Section -->
-
-    <!-- Trainers Index Section -->
-    <section id="trainers-index" class="section trainers-index">
-
-      <div class="container">
-
+<h2><b>Our Trainers</b></h2>
+  <section id="trainers-index" class="section trainers-index">
+    <div class="container">
         <div class="row">
-
-          <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>Walter White</h4>
-                <span>Web Development</span>
-                <p>
-                  Web develpment services
-                </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+            {% for trainer in trainers %}
+            <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+                <div class="member">
+                    <img src="{{ trainer.image.url }}" class="img-fluid" alt="{{ trainer.name }}" style="height: 230px; width:230px">
+                    <div class="member-content">
+                        <h4>{{ trainer.name }}</h4>
+                        <span>{{ trainer.role }}</span>
+                        <p>{{ trainer.bio }}</p>
+                        <div class="social">
+                            {% if trainer.twitter %}<a href="{{ trainer.twitter }}"><i class="bi bi-twitter-x"></i></a>{% endif %}
+                            {% if trainer.facebook %}<a href="{{ trainer.facebook }}"><i class="bi bi-facebook"></i></a>{% endif %}
+                            {% if trainer.instagram %}<a href="{{ trainer.instagram }}"><i class="bi bi-instagram"></i></a>{% endif %}
+                            {% if trainer.linkedin %}<a href="{{ trainer.linkedin }}"><i class="bi bi-linkedin"></i></a>{% endif %}
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>Sarah Jhinson</h4>
-                <span>Marketing</span>
-                <p>
-                  Marketing services
-                </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>William Anderson</h4>
-                <span>Content</span>
-                <p>
-                  Content creating services
-                </p>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
+            {% endfor %}
         </div>
+    </div>
+</section>
 
-      </div>
 
-    </section><!-- /Trainers Index Section -->
+  
+    
+
+
+
+
 
   </main>
   <footer id="footer" class="footer position-relative light-background">
