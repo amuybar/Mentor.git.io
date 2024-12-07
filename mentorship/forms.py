@@ -1,6 +1,7 @@
 from django import forms
 from .models import ContactMessage
-from django import forms
+from .models import Course
+
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import UserProfile
@@ -61,6 +62,19 @@ class LoginForm(forms.Form):
     password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={
         'class': 'form-control',
         'placeholder': 'Password'
-    }))    
+    })) 
+    
+
+
+
+class CourseForm(forms.ModelForm):
+    class Meta:
+        model = Course
+        fields = ['title', 'description', 'lecturer']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'description': forms.Textarea(attrs={'class': 'form-control'}),
+            'lecturer_name': forms.TextInput(attrs={'class': 'form-control'}),
+        }
 
        

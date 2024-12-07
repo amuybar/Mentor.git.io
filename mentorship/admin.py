@@ -4,6 +4,9 @@ from django.utils.html import format_html
 from .models import ContactMessage
 from .models import Testimonial
 from .models import UserProfile
+from django.contrib import admin
+from .models import Course, Lecturer
+from .models import Trainer
 
 # Register your models here.
 @admin.register(ContactMessage)
@@ -48,6 +51,23 @@ class TestimonialAdmin(admin.ModelAdmin):
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'phone_number', 'address')
+ 
+ 
+ # admin.py
+class CourseAdmin(admin.ModelAdmin):
+    list_display = ('title', 'lecturer', 'price')  
+    search_fields = ('title', 'lecturer__name')  
+
+
+admin.site.register(Course)
+admin.site.register(Lecturer)
+
+
+@admin.register(Trainer)
+class TrainerAdmin(admin.ModelAdmin):
+    list_display = ('name', 'position')
+
+
     
 
 

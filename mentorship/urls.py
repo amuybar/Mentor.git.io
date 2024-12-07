@@ -1,8 +1,8 @@
 from django.urls import path
 from  .views import contact
 from . import views
-# from django.conf import settings
-# from django.conf.urls.static import static
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('about/', views.about, name='about'),
@@ -20,5 +20,9 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
     path('staff-dashboard/', views.staff_dashboard, name='staff_dashboard'),
+    path('admin-dashboard/add-course/', views.add_course, name='add_course'),
+    path('admin-dashboard/delete-course/<int:course_id>/', views.delete_course, name='delete_course'),
     
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

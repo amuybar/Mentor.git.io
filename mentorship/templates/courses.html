@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Courses - Mentor Bootstrap Template</title>
+  <title>Courses - Obitech digital Solutions</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
 
@@ -556,7 +556,121 @@ box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 .mobile-nav-active .navmenu>ul {
   display: block;
 }
+}/* Container and Layout */
+.courses .container {
+  max-width: 1200px; /* You can adjust this width as needed */
+  margin: 0 auto;
 }
+
+/* Flexbox Layout for Course Items */
+.courses .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Ensures items are spread out across the row */
+  gap: 20px; /* Adds spacing between the items */
+}
+
+/* Course Item Styling */
+.course-item {
+  flex: 1 1 calc(33.333% - 20px); /* Adjust width to allow space between items */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd; /* Optional: add border for better separation */
+  border-radius: 10px;
+  padding: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out; /* Hover effect transition */
+  background-color: #fff;
+  margin-bottom: 30px; /* Add margin at the bottom */
+}
+
+/* Hover effect for course item */
+.course-item:hover {
+  transform: translateY(-5px); /* Hover effect for elevation */
+}
+
+/* Styling for Images */
+.course-image {
+  width: 80%;
+  height: 150px; /* Fixed height for uniformity */
+  object-fit: cover; /* Keep aspect ratio and cover the container */
+  border-radius: 8px;
+  margin-bottom: 15px; /* Adds space between the image and content */
+}
+
+/* Category and Price Styling */
+.category {
+  font-weight: bold;
+  color: #007bff;
+  font-size: 0.9rem;
+}
+
+.price {
+  font-weight: bold;
+  color: #28a745;
+  font-size: 1.1rem;
+}
+
+/* Course Title */
+.course-content h3 {
+  font-size: 1.2rem;
+  margin: 15px 0;
+  color: #333;
+}
+
+/* Description Styling */
+.description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Trainer Profile and Rank Styling */
+.trainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.trainer-profile {
+  display: flex;
+  align-items: center;
+}
+
+.trainer-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.trainer-rank {
+  display: flex;
+  align-items: center;
+}
+
+/* Adjust layout for smaller screens */
+@media (max-width: 768px) {
+  .course-item {
+      flex: 1 1 calc(50% - 20px); /* Two items per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .course-item {
+      flex: 1 1 100%; /* One item per row on very small screens */
+  }
+}
+#about{
+  margin-top: 50px;
+}
+.courses .col-lg-4 {
+  flex: 0 0 calc(33.333% - 15px); /* Ensure three items per row */
+  max-width: calc(33.333% - 15px);
+}
+
 
 
 
@@ -579,7 +693,7 @@ box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Mentor</h1>
+        <h1 class="sitename">obitech digital solutions</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -626,111 +740,54 @@ box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
               <h1>About Us<br></h1>
-              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <p class="mb-0">Welcome to Obitech Digital Solutions, where digital innovation meets creative excellence. We are a full-service digital agency dedicated to transforming your vision into reality.</p>
             </div>
           </div>
         </div>
       </div>
       <nav class="breadcrumbs">
         <div class="container">
-          <ol>
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li class="current">Courses</li>
-          </ol>
+         
         </div>
       </nav>
     </div><!-- End Page Title -->
+    <section id="about" class="about section">
+
 
     <!-- Courses Section -->
     <section id="courses" class="courses section">
-
       <div class="container">
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="course-item">
-              <img src="assets/img/course-1.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">Web Development</p>
-                  <p class="price">$169</p>
-                </div>
-
-                <h3><a href="course-details.html">Website Design</a></h3>
-                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-1-2.jpg" class="img-fluid" alt="">
-                    <a href="" class="trainer-link">Antonio</a>
+          <div class="row">
+              {% for course in courses %}
+              <div class="col-lg-4 col-md-6 mb-4 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="{{ forloop.counter0|add:100 }}">
+                <div class="course-item">
+                          <img src="{{ course.image.url }}" class="img-fluid course-image" alt="{{ course.title }}">
+                          <div class="course-content">
+                              <div class="d-flex justify-content-between align-items-center mb-3">
+                                  <p class="category">{{ course.title }}</p>
+                                  <p class="price">${{ course.price }}</p>
+                              </div>
+                              <h3><a href="course-details.html">{{ course.title }}</a></h3>
+                              <p class="description">{{ course.description }}</p>
+                              <div class="trainer d-flex justify-content-between align-items-center">
+                                  <div class="trainer-profile d-flex align-items-center">
+                                      <a href="#" class="trainer-link">{{ course.lecturer.name }}</a>
+                                  </div>
+                                  <div class="trainer-rank d-flex align-items-center">
+                                      <!-- Additional trainer data can go here -->
+                                  </div>
+                              </div>
+                          </div>
+                      </div> <!-- End Course Item -->
                   </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bi bi-person user-icon"></i>&nbsp;50
-                    &nbsp;&nbsp;
-                    <i class="bi bi-heart heart-icon"></i>&nbsp;65
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="course-item">
-              <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">Marketing</p>
-                  <p class="price">$250</p>
-                </div>
-
-                <h3><a href="course-details.html">Search Engine Optimization</a></h3>
-                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-2-2.jpg" class="img-fluid" alt="">
-                    <a href="" class="trainer-link">Lana</a>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bi bi-person user-icon"></i>&nbsp;35
-                    &nbsp;&nbsp;
-                    <i class="bi bi-heart heart-icon"></i>&nbsp;42
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="course-item">
-              <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <p class="category">Content</p>
-                  <p class="price">$180</p>
-                </div>
-
-                <h3><a href="course-details.html">Copywriting</a></h3>
-                <p class="description">Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-3-2.jpg" class="img-fluid" alt="">
-                    <a href="" class="trainer-link">Brandon</a>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bi bi-person user-icon"></i>&nbsp;20
-                    &nbsp;&nbsp;
-                    <i class="bi bi-heart heart-icon"></i>&nbsp;85
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
-        </div>
-
+              {% endfor %}
+          </div>
       </div>
-
-    </section><!-- /Courses Section -->
+  </section>
+  
+    
+  
+         <!-- end of course section -->
 
   </main>
 
