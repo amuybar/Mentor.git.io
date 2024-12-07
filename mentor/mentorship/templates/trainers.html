@@ -628,130 +628,44 @@ box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
           </div>
         </div>
       </div>
-      <nav class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li class="current">Trainers</li>
-          </ol>
-        </div>
-      </nav>
+      
     </div><!-- End Page Title -->
 
     <!-- Trainers Section -->
+    {% load static %}
     <section id="trainers" class="section trainers">
-
-      <div class="container">
-
-        <div class="row gy-5">
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
-            <div class="member-img">
-              <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
+        <div class="container">
+            <div class="row gy-5">
+                {% for trainer in trainers %}
+                    <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:100 }}">
+                        <div class="member-img">
+                            <img src="{{ trainer.image.url }}" class="img-fluid" alt="{{ trainer.name }}" style="height: 250px; width:250px">
+                            <!-- <div class="social">
+                                {% if trainer.twitter %}
+                                    <a href="{{ trainer.twitter }}"><i class="bi bi-twitter"></i></a>
+                                {% endif %}
+                                {% if trainer.facebook %}
+                                    <a href="{{ trainer.facebook }}"><i class="bi bi-facebook"></i></a>
+                                {% endif %}
+                                {% if trainer.instagram %}
+                                    <a href="{{ trainer.instagram }}"><i class="bi bi-instagram"></i></a>
+                                {% endif %}
+                                {% if trainer.linkedin %}
+                                    <a href="{{ trainer.linkedin }}"><i class="bi bi-linkedin"></i></a>
+                                {% endif %}
+                            </div> -->
+                        </div>
+                        <div class="member-info text-center">
+                            <h4>{{ trainer.name }}</h4>
+                            <span>{{ trainer.position }}</span>
+                            <p>{{ trainer.description }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-            <div class="member-info text-center">
-              <h4>Walter Nyakweba</h4>
-              <span>Business Analyst</span>
-              <p>Business Analyst lead</p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
-            <div class="member-img">
-              <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Sarah john</h4>
-              <span>Marketing</span>
-              <p> Our Marketing Lead </p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="300">
-            <div class="member-img">
-              <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>William Anderson</h4>
-              <span>Web Developer</span>i
-              <p>Web developer lead</p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="400">
-            <div class="member-img">
-              <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Amanda james</h4>
-              <span>Software developer</span>
-              <p>Software Developer Lead</p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="500">
-            <div class="member-img">
-              <img src="assets/img/team/team-5.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Brian Doe</h4>
-              <span>Web Design<br></span>
-              <p>Web Design Lead</p>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
-            <div class="member-img">
-              <img src="assets/img/team/team-6.jpg" class="img-fluid" alt="">
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info text-center">
-              <h4>Josepha Palas</h4>
-              <span>Graphic Design</span>
-              <p>Lead Graphic Design</p>
-            </div>
-          </div><!-- End Team Member -->
-
         </div>
-
-      </div>
-
-    </section><!-- /Trainers Section -->
+    </section>
+    <!-- /Trainers Section -->
 
   </main>
 

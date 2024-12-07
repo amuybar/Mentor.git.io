@@ -3,11 +3,15 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .forms import ContactForm
 from django.contrib import messages
-from django.shortcuts import redirect
+from django.shortcuts import redirect,get_object_or_404
 from .models import Testimonial
 from .forms import SignupForm
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
+from .models import Course, Lecturer
+from .forms import CourseForm
+from .models import Trainer
+
 
 
 
@@ -21,8 +25,11 @@ def about(request):
 
 def course_details(request):
     return render(request, template_name='course-details.html')
+
 def courses(request):
-    return render(request, template_name='courses.html')
+    all_courses = Course.objects.select_related('lecturer').all()
+    return render(request, 'courses.html', {'courses': all_courses})
+    # return render(request, template_name='courses.html', {'courses': courses})
 
 def events(request):
     return render(request, template_name='events.html')
@@ -34,7 +41,9 @@ def starter_page(request):
     return render(request, template_name='starter-page.html')
 
 def trainers(request):
-    return render(request, template_name='trainers.html')
+    trainers = Trainer.objects.all()
+    return render(request, 'trainers.html', {'trainers': trainers})
+
 
 
 
@@ -145,6 +154,40 @@ def signup(request):
 
     return render(request, 'signup.html', {'form': form})
 
+
+
+def admin_dashboard(request):
+    courses = Course.objects.all()
+    return render(request, 'admin_dashboard.html', {'courses': courses})
+
+
+def add_course(request):
+    if request.method == 'POST':
+        form = CourseForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('courses')  # Redirect to the courses page
+    else:
+        form = CourseForm()
+    return render(request, 'mentorship/add_course.html', {'form': form})
+
+def delete_course(request, course_id):
+    course = get_object_or_404(Course, id=course_id)
+    course.delete()
+    return redirect('admin_dashboard')
+
+
+def courses_page(request):
+    courses = Course.objects.all()
+    return render(request, 'courses.html', {'courses': courses})
+
+
+def courses_view(request):
+    # Fetch all courses
+    courses = Course.objects.select_related('lecturer').all()
+
+    # Pass courses to the template
+    return render(request, 'courses.html', {'courses': courses})
 
 
 
