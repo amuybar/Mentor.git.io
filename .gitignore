@@ -1,0 +1,11 @@
+# Ignore virtual environment
+mentor/venv/
+
+# Ignore Python-specific files
+*.pyc
+__pycache__/
+
+# Ignore other unnecessary files for Jekyll
+_site/
+.jekyll-cache/
+.DS_Store
