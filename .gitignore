@@ -1,6 +1,6 @@
 # Ignore virtual environment
 mentor/venv/
-venv/
+#venv/
 mentor/mentor_env/
 
 # Ignore Python-specific files
