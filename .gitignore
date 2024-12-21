@@ -1,5 +1,7 @@
 # Ignore virtual environment
 mentor/venv/
+venv/
+mentor/mentor_env/
 
 # Ignore Python-specific files
 *.pyc
