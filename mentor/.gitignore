@@ -1,18 +1,4 @@
 # Ignore virtual environment
-mentor_env/
-env/
-venv/
 
-# Ignore Python bytecode
-*.pyc
-__pycache__/
-
-# Ignore IDE settings
-.idea/
-.vscode/
-
-# Ignore database file (if SQLite)
-db.sqlite3
-
-# Ignore media/uploads (if applicable)
-media/
+venv
+.venv
