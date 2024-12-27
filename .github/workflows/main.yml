@@ -18,11 +18,11 @@ jobs:
         python-version: '3.11.9'
 
     - name: Create virtual environment
-      run: python3 -m venv venv
+      run: python3 -m venv /tmp/venv
 
     - name: Install Python dependencies
       run: |
-        source venv/bin/activate
+        source /tmp/venv/bin/activate
         pip install -r requirements.txt
 
     - name: Build Jekyll site
