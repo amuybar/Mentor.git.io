@@ -27,3 +27,6 @@ jobs:
 
     - name: Build Jekyll site
       uses: actions/jekyll-build-pages@v1
+      with:
+        source: mentorship/templates
+        destination: _site
